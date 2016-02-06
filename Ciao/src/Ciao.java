@@ -6,10 +6,11 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.omg.Messaging.*;
+import org.eclipse.wb.swt.SWTResourceManager;
 public class Ciao {
 
 	protected Shell shell;
-	private Text text;
+	private Text txtParola;
 
 	/**
 	 * Launch the application.
@@ -48,17 +49,20 @@ public class Ciao {
 		shell.setText("SWT Application");
 		
 		Button btnNewButton = new Button(shell, SWT.NONE);
+		btnNewButton.setFont(SWTResourceManager.getFont("SketchFlow Print", 26, SWT.NORMAL));
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				text.setText("ciao");
+				txtParola.setText (txtParola.getText()+"ciao");
 			}
 		});
-		btnNewButton.setBounds(349, 237, 75, 25);
+		btnNewButton.setBounds(20, 237, 75, 25);
 		btnNewButton.setText("bottone");
 		
-		text = new Text(shell, SWT.BORDER | SWT.READ_ONLY);
-		text.setBounds(10, 10, 401, 221);
+		txtParola = new Text(shell, SWT.BORDER | SWT.READ_ONLY);
+		txtParola.setFont(SWTResourceManager.getFont("Wingdings 3", 15, SWT.NORMAL));
+		txtParola.setText("parola");
+		txtParola.setBounds(10, 10, 401, 221);
 
 	}
 }
